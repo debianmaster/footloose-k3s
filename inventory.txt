@@ -1,6 +1,4 @@
 [masters]
 cluster-node0 ansible_connection=docker
-
-[nodes]
 cluster-node1 ansible_connection=docker
 cluster-node2 ansible_connection=docker

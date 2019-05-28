@@ -1,0 +1,20 @@
+---
+- name: Setup k3s
+  hosts: all
+
+  tasks:
+  - name: uninstall if exists
+    shell: "/usr/local/bin/k3s-uninstall.sh"
+    ignore_errors: yes
+
+  - name: download k3s
+    shell: "wget https://raw.githubusercontent.com/rancher/k3s/master/install.sh"
+
+  - name: install dependencies
+    shell: "yum install which -y"
+
+  - name: add execute permission
+    shell: "chmod +x install.sh"
+
+  - name: setup k3s
+    shell: "./install.sh"
